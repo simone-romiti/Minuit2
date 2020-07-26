@@ -1,0 +1,42 @@
+1 - Download the latest version from the Minuit website:
+    http://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/
+		
+		(alternatively you can check if the release you are looking for is already in the present repository)
+		
+2 - Now, in the directory where you downloaded the archive, extract Minuit2 with:
+    
+		mv Minuit-x-x-x.tar.gz   Minuit-x-x-x.tar 
+		tar xvf Minuit2-5.34.14.tar 
+
+		NOTE: Don't follow the instructions on the webpage
+		http://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/gettingStarted/autoconf.html
+		because you'd get the following error:
+		
+		------------------------------------------
+		>>> tar -zxf Minuit2-5.34.14.tar.gz 
+
+		gzip: stdin: not in gzip format
+		tar: Child returned status 1
+		tar: Error is not recoverable: exiting now
+		------------------------------------------
+		
+		The same happens even if you rename the .tar.gz file as above. 
+		
+3 - From now on you can follow the instructions on the webpage. 
+    In most cases you can simply do:
+		
+		./configure
+		make
+		make check
+		
+4 - Run a test program. On the webpage the name of the executable is not updated. Simply call:
+
+     test/MnTutorial/test_Minuit2_Quad4FMain
+
+5 - If everything went fine, you can place the present Minuit2/ folder wherever you want in your filesystem.
+    A choice could be the /opt/ directory.
+    Then give also the following command (eventually replacing /opt/ with your choice):
+    
+    sudo ln -s /opt/Minuit2/src/.libs/libMinuit2.so.0 /usr/local/lib/libMinuit2.so.0 
+    
+    This will create a symbolic link to the shared library needed for the linking process.
