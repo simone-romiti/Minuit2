@@ -56,6 +56,7 @@ After that give also the following command (eventually replacing /opt/ with your
 
 ``` bash
 sudo ln -s /opt/Minuit2/src/.libs/libMinuit2.so.0 /usr/local/lib/libMinuit2.so.0
+sudo ldconfig
 ```
 
 This will create a symbolic link to the shared library needed for the linking process.
