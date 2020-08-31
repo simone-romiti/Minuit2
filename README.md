@@ -1,21 +1,18 @@
-# Minuit2_standalone
+# Minuit2 standalone
 
 This repository contains:
 
-- The minimization library Minuit2 : 
-      releases/
+- The releases of the minimization library Minuit2 :
+      **releases/**
 
-- The instructions to install and use it : 
-      instructions/
+- The instructions to [install](./instructions/install.md) and [use](./instructions/usage.md) it :
+      **instructions/**
 
 - Examples of some C++ programs
-      examples/
+      **examples/**
 
 - A templated version of the library (in progress)
-      templated/
+      **templated/**
 
-I created it in order to simplify the installation process for novices (as I was).
-Apart from the templated/ folder, It doesn't contain more that what is present in the Minuit website:
-
-http://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/
-
+I created it in order to simplify the installation process for novices (as I was) because it took me some time to figure out the exact installation process.
+Apart from the templated/ folder, It doesn't contain much more that what is present in the [Minuit website](http://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/).
