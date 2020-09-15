@@ -7,6 +7,7 @@
 #include "Minuit2/MnHesse.h"
 #include "Minuit2/MnMigrad.h"
 #include "Minuit2/MnPrint.h"
+// #include "Minuit2/MnUserParameterState.h"
 #include "Minuit2/MnUserParameters.h"
 
 using namespace ROOT::Minuit2;
@@ -23,7 +24,7 @@ public:
     double x = par[0];
     double y = par[1];
 
-    return x * x + y * y;
+    return pow(x - 19, 2) + pow(y, 2);
   }
 
   double Up() const { return 1.; }
@@ -35,18 +36,21 @@ int main() {
 
   Quad4F fcn;
 
-  {
-    // test constructor
-    MnUserParameters upar;
-    upar.Add("x", 3., 0.01);
-    upar.Add("y", 3., 0.01);
+  // test constructor
+  MnUserParameters upar;
+  upar.Add("x", 3., 0.01);
+  upar.Add("y", 3., 0.01);
 
-    MnMigrad migrad(fcn, upar);
-    std::cout << "migrad created"
-              << "\n";
-    FunctionMinimum min = migrad();
-    std::cout << "minimum: " << min << std::endl;
-  }
+  MnMigrad migrad(fcn, upar);
+  std::cout << "migrad created"
+            << "\n";
+  FunctionMinimum min = migrad();
+  std::cout << "minimum: " << min << std::endl;
+
+  MnUserParameterState state = min.UserState();
+
+  std::cout << "x BF " << state.Params()[0] << "\n";
+  std::cout << "x BF " << state.Params()[1] << "\n";
 
   return 0;
 }
